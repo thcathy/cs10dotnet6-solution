@@ -1,0 +1,23 @@
+@using My.Shared
+@using Northwind.Common
+@{
+    ViewData["Title"] = "Services";    
+    Product[]? seafoodProducts = ViewData["seafoodProducts"] as Product[];
+    Console.WriteLine($"seafoodProducts={seafoodProducts?.Length}");
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @if (seafoodProducts is not null) {
+        <h2>Seafood products using GraphQL</h2>
+        <p>
+            @foreach (Product p in seafoodProducts) {
+                <span class="">
+                    @p.ProductId
+                    @p.ProductName
+                    -
+                    @(p.UnitsInStock is null ? "0" : p.UnitsInStock.Value) in stock
+                </span>
+            }
+        </p>
+    }
+</div>

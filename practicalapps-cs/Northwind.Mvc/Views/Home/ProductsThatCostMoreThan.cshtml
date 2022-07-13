@@ -1,0 +1,35 @@
+@using My.Shared
+@model IEnumerable<Product>
+@{
+    string title = "Products cost > " + ViewData["MaxPrice"];
+    ViewData["Title"] = title;
+}
+<h2>@title</h2>
+@if (Model is null) {
+    <div>No product found</div> 
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>supplier name</th>
+                <th>product name</th>
+                <th>price</th>
+                <th>unit in stocks</th> 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product p in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(m => p.Category.CategoryName)</td>
+                    <td>@Html.DisplayFor(m => p.Supplier.CompanyName)</td>
+                    <td>@Html.DisplayFor(m => p.ProductName)</td>
+                    <td>@Html.DisplayFor(m => p.UnitPrice)</td>
+                    <td>@Html.DisplayFor(m => p.UnitsInStock)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

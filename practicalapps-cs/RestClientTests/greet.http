@@ -1,0 +1,23 @@
+POST https://localhost:5005/graphql HTTP/1.1
+Content-Type: application/graphql
+
+{
+  __schema {
+    queryType {
+      fields {
+        name
+      }
+    }
+  }
+}
+###
+POST https://localhost:5005/graphql HTTP/1.1
+Content-Type: application/graphql
+
+query { 
+    products (categoryId: 8) {
+                        productId
+                        productName
+                        unitsInStock
+                    }
+}

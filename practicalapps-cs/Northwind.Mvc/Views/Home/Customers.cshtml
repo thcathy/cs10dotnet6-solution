@@ -1,0 +1,31 @@
+@using My.Shared
+@model IEnumerable<Customer>
+<h2>@ViewData["Title"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Company name</th>
+            <th>contact name</th>
+            <th>address</th>
+            <th>phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model is not null) {
+            @foreach (Customer c in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(m => c.CompanyName)</td>
+                    <td>@Html.DisplayFor(m => c.ContactName)</td>
+                    <td>
+                        @Html.DisplayFor(m => c.Address)
+                        @Html.DisplayFor(m => c.City)
+                        @Html.DisplayFor(m => c.Region)
+                        @Html.DisplayFor(m => c.Country)
+                        @Html.DisplayFor(m => c.PostalCode)
+                    </td>
+                    <td>@Html.DisplayFor(m => c.Phone)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
