@@ -1,0 +1,6 @@
+GET http://localhost:5231/api/customers/ HTTP/1.1
+###
+GET http://localhost:5231/api/customers/?country=USA HTTP/1.1
+Accept: application/xml
+###
+GET http://localhost:5231/api/customers/abcde HTTP/1.1
